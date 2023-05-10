@@ -3,6 +3,9 @@ from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from . import tools
 from urllib.parse import quote
+from selenium.webdriver.chrome.service import Service as ChromeService
+from subprocess import CREATE_NO_WINDOW
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 class AsciiArt:
@@ -15,6 +18,7 @@ class AsciiArt:
         self.attribs = attribs
         self.texts = tools.getTags(self.source, self.tag)
         self.options = None
+        self.service = None
         self.driver = None
         self.fails = {}
         if isinstance(self.texts, dict):
@@ -24,7 +28,7 @@ class AsciiArt:
                     ind = self.target.find(key)
                     while ind >= 0:
                         n_ind = max(self.target.rfind('\n', 0, ind), 0)
-                        text = text.replace('\n', '\n' + (' '*(ind - n_ind)))
+                        text = text.replace('\n', '\n' + (' '*(ind - n_ind - 1)))
                         self.target = self.target.replace(key, text, 1)
                         ind = self.target.find(key)
                 else:
@@ -34,10 +38,17 @@ class AsciiArt:
         try:
             if self.options is None:
                 self.options = webdriver.ChromeOptions()
+                self.options.ignore_zoom_level = True
                 self.options.add_argument('--headless')
+                self.options.add_argument('--disable-gpu')
+                self.options.add_argument('--disable-infobars')
+                self.options.add_experimental_option('excludeSwitches', ['enable-logging'])
                 self.options.page_load_strategy = 'none'
+            if self.service is None:
+                self.service = ChromeService(ChromeDriverManager().install())
+                self.service.creationflags = CREATE_NO_WINDOW
             if self.driver is None:
-                self.driver = Chrome(options=self.options)
+                self.driver = Chrome(options=self.options, service=self.service)
             else:
                 self.driver.back()
             self.driver.implicitly_wait(5)

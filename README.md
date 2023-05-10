@@ -31,3 +31,7 @@ Execute the following command
 ```sh
 ./buildLinux.sh
 ```
+
+## Demo
+
+![AnimatedText_Demo](res/imgs/Demo.gif)
