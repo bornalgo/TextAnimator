@@ -1,0 +1,4 @@
+PyQt5~=5.15.9
+selenium~=4.9.1
+setuptools~=66.1.0
+pycairo~=1.23.0

@@ -1,0 +1,2 @@
+buildLinux.sh eol=lf
+createICO.sh eol=lf

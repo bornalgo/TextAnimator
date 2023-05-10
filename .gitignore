@@ -1,0 +1,6 @@
+src/gui/interface_ui.py
+src/gui/resources_rc.py
+__pycache__
+.vscode
+.idea
+build/

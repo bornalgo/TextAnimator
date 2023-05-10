@@ -1,0 +1,29 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/columns.svg</file>
+    <file>icons/info.svg</file>
+    <file>icons/eye.svg</file>
+    <file>icons/eye-off.svg</file>
+    <file>icons/droplet.svg</file>
+    <file>icons/trash-2.svg</file>
+    <file>icons/zap.svg</file>
+    <file>icons/logo.svg</file>
+    <file>icons/x-square.svg</file>
+    <file>icons/save-as.svg</file>
+    <file>icons/save.svg</file>
+    <file>icons/chevrons-down.svg</file>
+    <file>icons/chevrons-up.svg</file>
+    <file>icons/clock.svg</file>
+    <file>icons/file-plus.svg</file>
+    <file>icons/folder.svg</file>
+    <file>icons/maximize.svg</file>
+    <file>icons/x-circle.svg</file>
+    <file>icons/progress.svg</file>
+  </qresource>
+  <qresource prefix="imgs">
+    <file>imgs/bornalgo.svg</file>
+  </qresource>
+  <qresource prefix="ui">
+    <file>ui/interface.ui</file>
+  </qresource>
+</RCC>
